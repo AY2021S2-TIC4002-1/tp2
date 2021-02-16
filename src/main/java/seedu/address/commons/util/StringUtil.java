@@ -26,16 +26,19 @@ public class StringUtil {
     public static boolean containsWordIgnoreCase(String sentence, String word) {
         requireNonNull(sentence);
         requireNonNull(word);
+        String[] obj;
 
-        String preppedWord = word.trim();
+        String preppedWord = word.trim().toLowerCase();
         checkArgument(!preppedWord.isEmpty(), "Word parameter cannot be empty");
-        checkArgument(preppedWord.split("\\s+").length == 1, "Word parameter should be a single word");
+        //checkArgument(preppedWord.split("\\s+").length == 1, "Word parameter should be a single word");
 
-        String preppedSentence = sentence;
-        String[] wordsInPreppedSentence = preppedSentence.split("\\s+");
-
-        return Arrays.stream(wordsInPreppedSentence)
-                .anyMatch(preppedWord::equalsIgnoreCase);
+        if(preppedWord.contains("/")){
+            obj = preppedWord.split("/");
+            preppedWord = obj[1];
+        }
+        String preppedSentence = sentence.toLowerCase();
+        //String[] wordsInPreppedSentence = preppedSentence.split("\\s+");
+        return preppedSentence.contains(preppedWord);
     }
 
     /**
