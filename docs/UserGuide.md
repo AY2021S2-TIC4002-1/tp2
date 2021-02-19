@@ -77,15 +77,24 @@ Format: `help`
 
 Adds a person to the address book.
 
+<<<<<<< HEAD
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK d/DATE i/NRIC [t/TAG]…​`
+=======
+Format: `add n/NAME i/IC p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+>>>>>>> fc449f8690e0807dc5d2bb3e2aa1a1ab053c37ec
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A person can have any number of tags (including 0)
 </div>
 
 Examples:
+<<<<<<< HEAD
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 r/shop theft d/12-20-2012 i/S12345678A`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 r/shop theft d/12-20-2012 i/S12345678A t/close`
+=======
+* `add n/John Doe i/S1111111B p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+>>>>>>> fc449f8690e0807dc5d2bb3e2aa1a1ab053c37ec
 
 ### Listing all persons : `list`
 
@@ -97,7 +106,11 @@ Format: `list`
 
 Edits an existing person in the address book.
 
+<<<<<<< HEAD
 Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [r/REMARK] [d/DATE] [i/NRIC] [t/TAG]…​`
+=======
+Format: `edit INDEX [n/NAME] [i/IC] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+>>>>>>> fc449f8690e0807dc5d2bb3e2aa1a1ab053c37ec
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -176,6 +189,7 @@ If your changes to the data file makes its format invalid, Police Address Book w
 
 Action | Format, Examples
 --------|------------------
+<<<<<<< HEAD
 **Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS r/REMARK d/DATE i/NRIC [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 r/shop theft d/12-20-2012 i/S12345678A t/friend t/colleague`
 **Clear** | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
@@ -184,3 +198,13 @@ Action | Format, Examples
 **List** | `list`
 **Help** | `help`
 **Remark** | `remark INDEX r/REMARK`<br> e.g., `remark 1 r/shop theft`
+=======
+**Add** | `add n/NAME I/IC p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho i/S1111111B p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
+**Clear** | `clear`
+**Delete** | `delete INDEX`<br> e.g., `delete 3`
+**Edit** | `edit INDEX [n/NAME] [i/IC] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
+**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+**List** | `list`
+**Help** | `help` <br>e.g., `help'
+
+>>>>>>> fc449f8690e0807dc5d2bb3e2aa1a1ab053c37ec

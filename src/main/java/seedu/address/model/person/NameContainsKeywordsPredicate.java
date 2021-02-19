@@ -27,6 +27,18 @@ public class NameContainsKeywordsPredicate implements Predicate<Person> {
             return keywords.stream()
                     .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getAddress().value, keyword));
         }
+        else if (obj.contains("i/")) {
+            return keywords.stream()
+                    .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getIc().value, keyword));
+        }
+        else if (obj.contains("p/")) {
+            return keywords.stream()
+                    .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getPhone().value, keyword));
+        }
+        else if (obj.contains("e/")) {
+            return keywords.stream()
+                    .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getEmail().value, keyword));
+        }
         else {
             return keywords.stream()
                     .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getName().fullName, keyword));
