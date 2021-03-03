@@ -5,9 +5,9 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 
 /**
  * Represents a person's NRIC in the address book.
- * Guarantees: immutable; is valid as declared in {@link #isValidNric(String)}
+ * Guarantees: immutable; is valid as declared in {@link #isValidIc(String)}
  */
-public class Nric {
+public class Ic {
     public static final String MESSAGE_NRIC_CONSTRAINTS =
             "Patient NRIC should follow the format of 1 alphabet, 7 digits, 1 alphabet, and it should not be blank";
 
@@ -22,20 +22,21 @@ public class Nric {
     /**
      * Constructs a {@code Nric}.
      *
-     * @param nric A valid NRIC.
+     * @param ic A valid NRIC.
      */
-    public Nric(String nric) {
-        requireNonNull(nric);
-        checkArgument(isValidNric(nric), MESSAGE_NRIC_CONSTRAINTS);
-        this.value = nric;
+    public Ic(String ic) {
+        requireNonNull(ic);
+        checkArgument(isValidIc(ic), MESSAGE_NRIC_CONSTRAINTS);
+        this.value = ic;
     }
 
     /**
      * Returns true if a given string is a valid patient NRIC.
      */
-    public static boolean isValidNric(String test) {
+    public static boolean isValidIc(String test) {
         return test.matches(NRIC_VALIDATION_REGEX);
     }
+
 
     @Override
     public String toString() {
@@ -45,8 +46,8 @@ public class Nric {
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
-                || (other instanceof Nric // instanceof handles nulls
-                && this.value.equals(((Nric) other).value)); // state check
+                || (other instanceof Ic // instanceof handles nulls
+                && this.value.equals(((Ic) other).value)); // state check
     }
 
     @Override

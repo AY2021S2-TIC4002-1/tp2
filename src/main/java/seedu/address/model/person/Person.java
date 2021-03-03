@@ -17,12 +17,11 @@ public class Person {
 
     // Identity fields
     private final Name name;
-    private final Nric nric;
+    private final Ic ic;
     private final Phone phone;
     private final Email email;
 
     // Data fields
-    private final Date date;
     private final Address address;
     private final Remark remark;
     private final Set<Tag> tags = new HashSet<>();
@@ -30,13 +29,10 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-
-    public Person(Name name, Date date, Nric nric, Phone phone,
-                  Email email, Address address, Remark remark, Set<Tag> tags) {
-        requireAllNonNull(name, date, nric, phone, email, address, tags);
+    public Person(Name name, Ic ic, Phone phone, Email email, Address address, Remark remark, Set<Tag> tags) {
+        requireAllNonNull(name, ic, phone, email, address, tags);
         this.name = name;
-        this.date = date;
-        this.nric = nric;
+        this.ic = ic;
         this.phone = phone;
         this.email = email;
         this.address = address;
@@ -45,11 +41,13 @@ public class Person {
 
     }
 
-    public Name getName() { return name; }
+    public Name getName() {
+        return name;
+    }
 
-    public Date getDate() { return date; }
-
-    public Nric getNric() { return nric; }
+    public Ic getIc() {
+        return ic;
+    }
 
     public Phone getPhone() {
         return phone;
@@ -86,7 +84,7 @@ public class Person {
 
         return otherPerson != null
             && otherPerson.getName().equals(getName())
-            && otherPerson.getNric().equals(getNric())
+            && otherPerson.getIc().equals(getIc())
             && (otherPerson.getPhone().equals(getPhone()) || otherPerson.getEmail().equals(getEmail()));
     }
 
@@ -106,7 +104,7 @@ public class Person {
 
         Person otherPerson = (Person) other;
         return otherPerson.getName().equals(getName())
-            && otherPerson.getNric().equals(getNric())
+            && otherPerson.getIc().equals(getIc())
             && otherPerson.getPhone().equals(getPhone())
             && otherPerson.getEmail().equals(getEmail())
             && otherPerson.getAddress().equals(getAddress())
@@ -116,17 +114,15 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, date, nric, phone, email, address, remark, tags);
+        return Objects.hash(name, ic, phone, email, address, remark, tags);
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
-            .append(" Report Date: ")
-            .append(getDate())
-            .append(" Nric: ")
-            .append(getNric())
+            .append(" Ic: ")
+            .append(getIc())
             .append(" Phone: ")
             .append(getPhone())
             .append(" Email: ")
